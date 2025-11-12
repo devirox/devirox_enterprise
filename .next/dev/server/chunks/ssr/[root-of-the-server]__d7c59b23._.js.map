@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///workspaces/devirox_enterprise/app/%28public%29/page.tsx"],"sourcesContent":["import React from 'react'\n\nexport default function HomePage() {\n  return (\n    <main className=\"p-8\">\n      <h1 className=\"text-3xl font-bold\">Welcome to DeviroxN Enterprise</h1>\n      <p className=\"mt-4\">Public landing page for Finance, Marketplace, and Real Estate domains.</p>\n    </main>\n  )\n}\n"],"names":[],"mappings":";;;;;;AAEe,SAAS;IACtB,qBACE,+YAAC;QAAK,WAAU;;0BACd,+YAAC;gBAAG,WAAU;0BAAqB;;;;;;0BACnC,+YAAC;gBAAE,WAAU;0BAAO;;;;;;;;;;;;AAG1B","debugId":null}}]
+}

@@ -1,0 +1,20 @@
+{
+  "node": {
+    "40838524ac479ed4d4c7dfcc590164ea0a5fcb1127": {
+      "workers": {
+        "app/dashboard/admin/approvals/page": {
+          "moduleId": 90084,
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "app/dashboard/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/admin/approvals/page": "rsc"
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_0",
+      "filename": "app/dashboard/admin/actions.ts"
+    }
+  },
+  "edge": {}
+}

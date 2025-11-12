@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  color: #0f172a; /* slate-900 */
+}
+
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(1.00000 0.00000 0);
+  --foreground: oklch(0.14100 0.00500 285.82300);
+  --card: oklch(1.00000 0.00000 0);
+  --card-foreground: oklch(0.14100 0.00500 285.82300);
+  --popover: oklch(1.00000 0.00000 0);
+  --popover-foreground: oklch(0.14100 0.00500 285.82300);
+  --primary: oklch(0.44112 0.19532 267.34453);
+  --primary-foreground: oklch(0.98500 0.00000 0.00000);
+  --secondary: oklch(0.70991 0.14364 278.96610);
+  --secondary-foreground: oklch(0.14100 0.00500 285.82300);
+  --accent: oklch(0.93371 0.00641 226.94066);
+  --accent-foreground: oklch(0.14100 0.00500 285.82300);
+  --destructive: oklch(0.62145 0.22629 31.91440);
+  --destructive-foreground: oklch(0.98500 0.00000 0.00000);
+  --muted: oklch(0.96867 0.00112 276.15038);
+  --muted-foreground: oklch(0.14100 0.00500 285.82300);
+  --border: oklch(0.91895 0.00576 276.08367);
+  --input: oklch(0.91895 0.00576 276.08367);
+  --ring: oklch(0.44112 0.19532 267.34453);
+}
+
+.dark {
+  --background: oklch(0.17138 0.00780 275.52626);
+  --foreground: oklch(0.98500 0.00000 0.00000);
+  --card: oklch(0.20727 0.01123 275.39263);
+  --card-foreground: oklch(0.98500 0.00000 0.00000);
+  --popover: oklch(0.19865 0.00764 275.63180);
+  --popover-foreground: oklch(0.98500 0.00000 0.00000);
+  --primary: oklch(0.45866 0.20427 267.28679);
+  --primary-foreground: oklch(0.98500 0.00000 0.00000);
+  --secondary: oklch(0.19793 0.11235 267.16071);
+  --secondary-foreground: oklch(0.98500 0.00000 0.00000);
+  --accent: oklch(0.18359 0.02947 229.07259);
+  --accent-foreground: oklch(0.98500 0.00000 0.00000);
+  --destructive: oklch(0.62145 0.22629 31.91440);
+  --destructive-foreground: oklch(0.98500 0.00000 0.00000);
+  --muted: oklch(0.25787 0.01597 275.27073);
+  --muted-foreground: oklch(0.98500 0.00000 0.00000);
+  --border: oklch(0.26968 0.01258 275.50893);
+  --input: oklch(0.26968 0.01258 275.50893);
+  --ring: oklch(0.45866 0.20427 267.28679);
+}

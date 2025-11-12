@@ -1,0 +1,51 @@
+{
+  "node": {
+    "404f13cc2c66b3969bb82d7fbf9231efd0d5139f39": {
+      "workers": {
+        "app/(auth)/register/page": {
+          "moduleId": 35866,
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "app/(auth)/register/actions.ts"
+        }
+      },
+      "layer": {
+        "app/(auth)/register/page": "rsc"
+      },
+      "filename": "app/(auth)/register/actions.ts",
+      "exportedName": "$$RSC_SERVER_ACTION_0"
+    },
+    "40838524ac479ed4d4c7dfcc590164ea0a5fcb1127": {
+      "workers": {
+        "app/dashboard/admin/approvals/page": {
+          "moduleId": 90084,
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "app/dashboard/admin/actions.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/admin/approvals/page": "rsc"
+      },
+      "filename": "app/dashboard/admin/actions.ts",
+      "exportedName": "$$RSC_SERVER_ACTION_0"
+    },
+    "401cd501e5cb2133e7dd25a2123faf86be4438c08f": {
+      "workers": {
+        "app/dashboard/admin/uploads/page": {
+          "moduleId": 83556,
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "app/dashboard/admin/uploads/actions.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/admin/uploads/page": "rsc"
+      },
+      "filename": "app/dashboard/admin/uploads/actions.ts",
+      "exportedName": "$$RSC_SERVER_ACTION_0"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "X/MOkeACOF1aa+Es6kvo3mP24LFlGzBFST/+/3F/G7E="
+}

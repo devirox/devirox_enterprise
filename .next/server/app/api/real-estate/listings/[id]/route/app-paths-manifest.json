@@ -1,0 +1,3 @@
+{
+  "/api/real-estate/listings/[id]/route": "app/api/real-estate/listings/[id]/route.js"
+}

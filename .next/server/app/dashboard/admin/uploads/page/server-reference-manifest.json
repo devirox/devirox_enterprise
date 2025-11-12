@@ -1,0 +1,20 @@
+{
+  "node": {
+    "401cd501e5cb2133e7dd25a2123faf86be4438c08f": {
+      "workers": {
+        "app/dashboard/admin/uploads/page": {
+          "moduleId": 83556,
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "app/dashboard/admin/uploads/actions.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/admin/uploads/page": "rsc"
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_0",
+      "filename": "app/dashboard/admin/uploads/actions.ts"
+    }
+  },
+  "edge": {}
+}

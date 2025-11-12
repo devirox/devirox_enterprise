@@ -1,0 +1,132 @@
+// Prisma schema for enterprise app (Neon/Postgres)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  FINANCE_STAFF
+  MARKETPLACE_SELLER
+  REALTOR
+  CUSTOMER
+}
+model ImageAsset {
+  id         String   @id @default(cuid())
+  title      String?
+  publicId   String
+  url        String
+  folder     String?
+  isActive   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+model User {
+  id            String   @id @default(cuid())
+  name          String?
+  email         String   @unique
+  emailVerified DateTime?
+  image         String?
+  role          Role     @default(CUSTOMER)
+  isApproved    Boolean  @default(false)
+  hashedPassword String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  savings       Savings[]
+  loans         Loan[]
+  products      Product[] @relation("SellerProducts")
+  accounts      Account[]
+  sessions      Session[]
+  listings      Listing[]
+}
+
+// Finance domain
+model Savings {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  balance   Decimal  @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Loan {
+  id           String   @id @default(cuid())
+  user         User     @relation(fields: [userId], references: [id])
+  userId       String
+  amount       Decimal
+  interestRate Float
+  status       String   // PENDING, APPROVED, REJECTED, DISBURSED
+  createdAt    DateTime @default(now())
+}
+
+// Marketplace domain
+model Product {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  price       Decimal
+  seller      User     @relation("SellerProducts", fields: [sellerId], references: [id])
+  sellerId    String
+  ads         Ad[]
+  createdAt   DateTime @default(now())
+}
+
+model Ad {
+  id        String   @id @default(cuid())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+// Real Estate domain
+model Listing {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  price       Decimal
+  realtor     User     @relation(fields: [realtorId], references: [id])
+  realtorId   String
+  type        String   // RENT, SALE
+  createdAt   DateTime @default(now())
+}
+
+// NextAuth compatibility (optional)
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?
+  access_token       String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id])
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+model VerificationToken {
+  identifier String
+  token      String @unique
+  expires    DateTime
+  @@unique([identifier, token])
+}
+

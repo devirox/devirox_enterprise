@@ -1,0 +1,3 @@
+module.exports=[93695,(a,b,c)=>{b.exports=a.x("next/dist/shared/lib/no-fallback-error.external.js",()=>require("next/dist/shared/lib/no-fallback-error.external.js"))},70864,a=>{a.n(a.i(33290))},59808,a=>{a.n(a.i(68619))},67331,a=>{a.n(a.i(61910))},1772,a=>{a.n(a.i(30208))},12581,a=>{a.n(a.i(72248))},87481,a=>{"use strict";var b=a.i(50680);function c(){return(0,b.jsx)("div",{className:"p-6 text-xl font-semibold",children:"Customer Finance Placeholder"})}a.s(["default",()=>c])}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__9e30ad86._.js.map

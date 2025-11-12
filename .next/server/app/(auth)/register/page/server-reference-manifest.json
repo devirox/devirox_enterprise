@@ -1,0 +1,20 @@
+{
+  "node": {
+    "404f13cc2c66b3969bb82d7fbf9231efd0d5139f39": {
+      "workers": {
+        "app/(auth)/register/page": {
+          "moduleId": 35866,
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "app/(auth)/register/actions.ts"
+        }
+      },
+      "layer": {
+        "app/(auth)/register/page": "rsc"
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_0",
+      "filename": "app/(auth)/register/actions.ts"
+    }
+  },
+  "edge": {}
+}

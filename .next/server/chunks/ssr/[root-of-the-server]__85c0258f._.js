@@ -1,0 +1,3 @@
+module.exports=[93695,(a,b,c)=>{b.exports=a.x("next/dist/shared/lib/no-fallback-error.external.js",()=>require("next/dist/shared/lib/no-fallback-error.external.js"))},70864,a=>{a.n(a.i(33290))},59808,a=>{a.n(a.i(68619))},67331,a=>{a.n(a.i(61910))},1772,a=>{a.n(a.i(30208))},12581,a=>{a.n(a.i(72248))},56349,a=>{"use strict";var b=a.i(50680);function c(){return(0,b.jsxs)("main",{className:"p-8",children:[(0,b.jsx)("h1",{className:"text-3xl font-bold",children:"Welcome to DeviroxN Enterprise"}),(0,b.jsx)("p",{className:"mt-4",children:"Public landing page for Finance, Marketplace, and Real Estate domains."})]})}a.s(["default",()=>c])}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__85c0258f._.js.map
