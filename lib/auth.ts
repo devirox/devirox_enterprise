@@ -22,7 +22,7 @@ export const authOptions = {
         if (!credentials?.email || !credentials?.password) return null
         const user = await prisma.user.findUnique({ where: { email: credentials.email } })
         if (!user || !user.hashedPassword) return null
-    const isValid = await comparePassword(credentials.password, user.hashedPassword)
+        const isValid = await comparePassword(credentials.password, user.hashedPassword)
         if (!isValid) return null
         // NextAuth expects an object with id and email at minimum
         return { id: user.id, email: user.email, name: user.name, role: user.role }
@@ -31,6 +31,10 @@ export const authOptions = {
   ],
   session: {
     strategy: 'jwt'
+  },
+  pages: {
+    signIn: '/login',
+    error: '/login'
   },
   callbacks: {
     // When a user signs in, ensure they're approved (admin flow) and attach role
@@ -77,6 +81,15 @@ export const authOptions = {
       session.user.role = token.role
       session.user.isApproved = token.isApproved
       return session
+    },
+    async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
+      if (url.startsWith('/')) {
+        return `${baseUrl}${url}`
+      }
+      if (url.startsWith(baseUrl)) {
+        return url
+      }
+      return `${baseUrl}/dashboard`
     }
   },
   secret: process.env.NEXTAUTH_SECRET
