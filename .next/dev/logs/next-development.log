@@ -1,22 +1,5 @@
-[00:00:01.869] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.079] Server  LOG      ✓ Ready in 1686ms
-[00:00:08.386] Server  LOG      ○ Compiling / ...
-[00:00:10.592] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:19.542] Server  WARN    Falling back to PrismaClient stub. Original error: Error: Failed to load external module @prisma/client: Error: Cannot find module '.prisma/client/default'
-Require stack:
-- /workspaces/devirox_enterprise/node_modules/.pnpm/@prisma+client@6.19.0_prisma@5.22.0_typescript@5.9.3/node_modules/@prisma/client/default.js
-- /workspaces/devirox_enterprise/.next/dev/server/chunks/[root-of-the-server]__f90d85c6._.js
-- /workspaces/devirox_enterprise/.next/dev/server/chunks/[turbopack]_runtime.js
-- /workspaces/devirox_enterprise/.next/dev/server/app/api/auth/[...nextauth]/route.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/require.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/load-components.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/utils.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/swc/options.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/swc/index.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js
-- /workspaces/devirox_enterprise/node_modules/.pnpm/next@16.0.1_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js
-[00:00:27.428] Server  ERROR   [next-auth][error][adapter_error_createUser] "\nhttps://next-auth.js.org/errors#adapter_error_createuser" "Prisma Client is not available in this environment. Attempted to call user.create." {}
-[00:03:22.065] Server  ERROR   [next-auth][error][adapter_error_createUser] "\nhttps://next-auth.js.org/errors#adapter_error_createuser" "Prisma Client is not available in this environment. Attempted to call user.create." {}
-[00:03:29.649] Server  ERROR   [next-auth][error][adapter_error_createUser] "\nhttps://next-auth.js.org/errors#adapter_error_createuser" "Prisma Client is not available in this environment. Attempted to call user.create." {}
-[00:03:53.612] Server  ERROR   [next-auth][error][adapter_error_createUser] "\nhttps://next-auth.js.org/errors#adapter_error_createuser" "Prisma Client is not available in this environment. Attempted to call user.create." {}
+[00:00:01.542] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.732] Server  LOG      ✓ Ready in 1439ms
+[00:00:08.531] Server  LOG      ○ Compiling / ...
+[00:00:10.604] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:44.850] Server  ERROR   [next-auth][error][SIGNIN_OAUTH_ERROR] "\nhttps://next-auth.js.org/errors#signin_oauth_error" "client_id is required" {}
