@@ -21,15 +21,7 @@ pnpm prisma:push
 
 When Prisma Client binaries are unavailable (e.g., offline codespaces) the app transparently falls back to an on-disk JSON datastore stored in `.data/prisma-store.json`. That stub respects all `prisma.*` calls used in the app, including the NextAuth Prisma adapter, so GitHub/Google login works without a dedicated database.
 
-4. Seed the default admin user once the database (real or stub) is ready:
-
-```bash
-pnpm prisma db seed    # runs the same logic as pnpm seed:admin
-```
-
-This command (and the stub datastore) create a `SUPER_ADMIN` user using `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_NAME` from `.env` so you can immediately sign in with the credentials provider on `/login`.
-
-5. Start dev server
+4. Start dev server
 
 ```bash
 pnpm dev
