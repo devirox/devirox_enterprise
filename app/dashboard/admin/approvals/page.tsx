@@ -2,6 +2,8 @@ import React from 'react'
 import prisma from '@/lib/prisma'
 import { approveUserAction } from '../actions'
 
+type PendingUser = Awaited<ReturnType<typeof prisma.user.findMany>>[number]
+
 export default async function ApprovalsPage() {
   const pending = await prisma.user.findMany({ where: { isApproved: false }, take: 50 })
   return (
@@ -9,7 +11,7 @@ export default async function ApprovalsPage() {
       <h1 className="text-2xl font-bold">User Approvals</h1>
       <p className="mt-2">Approve newly registered users. You can also contact users at the email listed below.</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {pending.map(u => (
+        {pending.map((u: PendingUser) => (
           <div key={u.id} className="p-4 bg-white rounded shadow">
             <div className="flex items-center justify-between">
               <div>

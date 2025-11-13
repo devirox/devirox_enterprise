@@ -5,6 +5,8 @@ import prisma from '@/lib/prisma'
 import DashboardLayout from '@/components/layout/DashboardLayout'
 import ListingCard from '@/components/dashboard/ListingCard'
 
+type ListingItem = Awaited<ReturnType<typeof prisma.listing.findMany>>[number]
+
 export default async function ListingsPage() {
   const session = await getServerSession(authOptions as any)
   if (!session) return <div>Unauthorized</div>
@@ -16,7 +18,7 @@ export default async function ListingsPage() {
     <DashboardLayout>
       <h2 className="text-xl font-bold">Your Listings</h2>
       <div className="mt-4 grid grid-cols-3 gap-4">
-        {listings.map(l => (
+        {listings.map((l: ListingItem) => (
           <ListingCard key={l.id} title={l.title} price={Number(l.price)} />
         ))}
       </div>

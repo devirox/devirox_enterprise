@@ -5,6 +5,8 @@ import prisma from '@/lib/prisma'
 import DashboardLayout from '@/components/layout/DashboardLayout'
 import FinanceCard from '@/components/dashboard/FinanceCard'
 
+type SavingsItem = Awaited<ReturnType<typeof prisma.savings.findMany>>[number]
+
 export default async function Page() {
   const session = await getServerSession(authOptions as any)
   if (!session) return <div>Unauthorized</div>
@@ -17,7 +19,7 @@ export default async function Page() {
     <DashboardLayout>
       <h1 className="text-2xl font-bold">Finance Overview</h1>
       <div className="grid grid-cols-2 gap-4 mt-4">
-        <FinanceCard title="Savings" value={savings.reduce((s, a) => s + Number(a.balance), 0)} />
+        <FinanceCard title="Savings" value={savings.reduce((sum: number, a: SavingsItem) => sum + Number(a.balance), 0)} />
         <FinanceCard title="Open Loans" value={loans.length} />
       </div>
     </DashboardLayout>
