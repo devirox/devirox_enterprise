@@ -1,22 +1,23 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import prisma from '@/lib/prisma'
 import { sendMail } from '@/lib/mailer'
 import { requireSession, isOwner } from '@/lib/guards'
 
-export async function GET(_req: Request, { params }: { params: { id: string } }) {
-  const listing = await prisma.listing.findUnique({ where: { id: params.id } })
+export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const listing = await prisma.listing.findUnique({ where: { id } })
   if (!listing) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   return NextResponse.json(listing)
 }
 
-export async function PATCH(req: Request, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = await getServerSession(authOptions as any)
   const maybe = requireSession(session)
   if (maybe) return maybe
 
-  const id = params.id
+  const { id } = await params
   const listing = await prisma.listing.findUnique({ where: { id } })
   if (!listing) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
@@ -37,12 +38,12 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
   return NextResponse.json(updated)
 }
 
-export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = await getServerSession(authOptions as any)
   const maybe = requireSession(session)
   if (maybe) return maybe
 
-  const id = params.id
+  const { id } = await params
   const listing = await prisma.listing.findUnique({ where: { id } })
   if (!listing) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
