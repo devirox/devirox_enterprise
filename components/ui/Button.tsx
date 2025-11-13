@@ -2,7 +2,11 @@ import React from 'react'
 
 type Variant = 'primary' | 'ghost' | 'outline'
 
-export default function Button({ children, variant = 'primary' }: { children: React.ReactNode; variant?: Variant }) {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: Variant
+}
+
+export default function Button({ children, className = '', variant = 'primary', ...rest }: ButtonProps) {
   const base = 'px-4 py-2 rounded font-medium '
   const classes =
     variant === 'primary'
@@ -10,5 +14,12 @@ export default function Button({ children, variant = 'primary' }: { children: Re
       : variant === 'outline'
       ? base + 'border border-slate-200 text-slate-700 bg-white'
       : base + 'bg-transparent text-slate-700'
-  return React.createElement('button', { className: classes }, children)
+  return React.createElement(
+    'button',
+    {
+      className: `${classes} ${className}`.trim(),
+      ...rest
+    },
+    children
+  )
 }

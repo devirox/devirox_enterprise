@@ -4,6 +4,8 @@ import { authOptions } from '@/lib/auth'
 import prisma from '@/lib/prisma'
 import DashboardLayout from '@/components/layout/DashboardLayout'
 
+type LoanItem = Awaited<ReturnType<typeof prisma.loan.findMany>>[number]
+
 export default async function LoansPage() {
   const session = await getServerSession(authOptions as any)
   if (!session) return <div>Unauthorized</div>
@@ -15,7 +17,7 @@ export default async function LoansPage() {
     <DashboardLayout>
       <h2 className="text-xl font-bold">Your Loans</h2>
       <ul className="mt-4 space-y-2">
-        {loans.map(l => (
+        {loans.map((l: LoanItem) => (
           <li key={l.id} className="p-3 bg-white rounded shadow">Amount: {String(l.amount)} — Status: {l.status}</li>
         ))}
       </ul>

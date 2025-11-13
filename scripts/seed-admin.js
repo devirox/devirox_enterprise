@@ -10,12 +10,10 @@
 const { PrismaClient } = require('@prisma/client')
 const bcrypt = require('bcryptjs')
 
-async function main() {
-  const prisma = new PrismaClient()
+async function seedAdmin(prisma) {
   const email = process.env.ADMIN_EMAIL || 'admin@localhost'
   const password = process.env.ADMIN_PASSWORD || 'Passw0rd!'
   const name = process.env.ADMIN_NAME || 'Root Admin'
-
   const hashed = await bcrypt.hash(password, 10)
 
   const user = await prisma.user.upsert({
@@ -37,16 +35,28 @@ async function main() {
     }
   })
 
-  console.log('Seeded admin user:')
-  console.log('  email:', user.email)
-  console.log('  password:', password)
-  console.log('  role:', user.role)
-  console.log('Run `npm run dev` and sign in using credentials above (use credentials provider).')
-
-  await prisma.$disconnect()
+  return { user, password }
 }
 
-main().catch((e) => {
-  console.error('Seed failed:', e)
-  process.exit(1)
-})
+async function runFromCLI() {
+  const prisma = new PrismaClient()
+  try {
+    const { user, password } = await seedAdmin(prisma)
+    console.log('Seeded admin user:')
+    console.log('  email:', user.email)
+    console.log('  password:', password)
+    console.log('  role:', user.role)
+    console.log('Run `pnpm dev` and sign in using credentials above (use the credentials provider).')
+  } catch (error) {
+    console.error('Seed failed:', error)
+    process.exitCode = 1
+  } finally {
+    await prisma.$disconnect()
+  }
+}
+
+if (require.main === module) {
+  runFromCLI()
+}
+
+module.exports = { seedAdmin }

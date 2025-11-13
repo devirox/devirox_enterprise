@@ -4,6 +4,8 @@ import { authOptions } from '@/lib/auth'
 import prisma from '@/lib/prisma'
 import DashboardLayout from '@/components/layout/DashboardLayout'
 
+type SavingsItem = Awaited<ReturnType<typeof prisma.savings.findMany>>[number]
+
 export default async function SavingsPage() {
   const session = await getServerSession(authOptions as any)
   if (!session) return <div>Unauthorized</div>
@@ -15,7 +17,7 @@ export default async function SavingsPage() {
     <DashboardLayout>
       <h2 className="text-xl font-bold">Your Savings</h2>
       <ul className="mt-4 space-y-2">
-        {savings.map(s => (
+        {savings.map((s: SavingsItem) => (
           <li key={s.id} className="p-3 bg-white rounded shadow">Account — {String(s.balance)}</li>
         ))}
       </ul>
