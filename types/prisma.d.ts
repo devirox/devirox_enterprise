@@ -28,13 +28,6 @@ declare module '@prisma/client' {
     createdAt: Date
   }
 
-  export interface Ad {
-    id: string
-    productId: string
-    active: boolean
-    createdAt: Date
-  }
-
   export interface Listing {
     id: string
     title: string
@@ -67,47 +60,12 @@ declare module '@prisma/client' {
     expires: Date
   }
 
-  export interface Account {
-    id: string
-    userId: string
-    type: string
-    provider: string
-    providerAccountId: string
-    refresh_token?: string | null
-    access_token?: string | null
-    expires_at?: number | null
-    token_type?: string | null
-    scope?: string | null
-    id_token?: string | null
-    session_state?: string | null
-  }
-
-  export interface Session {
-    id: string
-    sessionToken: string
-    userId: string
-    expires: Date
-  }
-
-  export interface ImageAsset {
-    id: string
-    title: string | null
-    publicId: string
-    url: string
-    folder: string | null
-    isActive: boolean
-    createdAt: Date
-  }
-
   export class PrismaClient {
     user: {
       findMany(args?: any): Promise<User[]>
       findUnique(args: any): Promise<User | null>
-      findFirst(args: any): Promise<User | null>
       update(args: any): Promise<User>
       create(args: any): Promise<User>
-      delete(args: any): Promise<User>
-      upsert(args: any): Promise<User>
     }
     product: {
       findMany(args?: any): Promise<Product[]>
@@ -115,11 +73,6 @@ declare module '@prisma/client' {
       update(args: any): Promise<Product>
       delete(args: any): Promise<Product>
       create(args: any): Promise<Product>
-    }
-    ad: {
-      findMany(args?: any): Promise<Ad[]>
-      create(args: any): Promise<Ad>
-      update(args: any): Promise<Ad>
     }
     listing: {
       findMany(args?: any): Promise<Listing[]>
@@ -131,7 +84,6 @@ declare module '@prisma/client' {
     savings: {
       findMany(args?: any): Promise<Savings[]>
       create(args: any): Promise<Savings>
-      deleteMany(args: any): Promise<{ count: number }>
     }
     loan: {
       findMany(args?: any): Promise<Loan[]>
@@ -141,30 +93,7 @@ declare module '@prisma/client' {
     verificationToken: {
       findUnique(args: any): Promise<VerificationToken | null>
       create(args: any): Promise<VerificationToken>
-      delete(args: any): Promise<VerificationToken | null>
       deleteMany(args: any): Promise<{ count: number }>
     }
-    account: {
-      findUnique(args: any): Promise<Account | null>
-      findFirst(args: any): Promise<Account | null>
-      create(args: any): Promise<Account>
-      update(args: any): Promise<Account>
-      delete(args: any): Promise<Account>
-      deleteMany(args: any): Promise<{ count: number }>
-      upsert(args: any): Promise<Account>
-    }
-    session: {
-      findUnique(args: any): Promise<Session | null>
-      create(args: any): Promise<Session>
-      update(args: any): Promise<Session>
-      delete(args: any): Promise<Session>
-      deleteMany(args: any): Promise<{ count: number }>
-    }
-    imageAsset: {
-      findMany(args?: any): Promise<ImageAsset[]>
-      create(args: any): Promise<ImageAsset>
-    }
-    $connect(): Promise<void>
-    $disconnect(): Promise<void>
   }
 }
